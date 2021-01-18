@@ -1,0 +1,4 @@
+/node_modules/
+yarn.lock
+# only generated for size check
+my-element.bundled.js
