@@ -1,17 +1,32 @@
 import { LitElement, html, css } from 'lit-element';
+
+import '@polymer/paper-item/paper-item';
+import '@polymer/iron-image/iron-image';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
-import '@polymer/paper-item/paper-item';
-import '@polymer/paper-listbox/paper-listbox';
-import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
-import '@polymer/paper-checkbox/paper-checkbox';
 import '@polymer/paper-button/paper-button';
-import '@polymer/iron-image/iron-image';
+import '@polymer/paper-listbox/paper-listbox';
+import '@polymer/paper-checkbox/paper-checkbox';
+import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 
 import { buttonStyles, selectStyles, workflowHeaderStyles } from '../../constants/appCssMixins';
 
-export class Header extends LitElement {
+/**
+ * `<workflow-header>` Custom component to view the header of Workflow configuration.
+ *
+ * <body>
+ *  <workflow-header>
+ * </workflow-header>
+ *
+ * @LitElement
+ * @Polymer
+ * @customElement
+ */
+class Header extends LitElement {
 
+  /**
+   * Define the styles for header.
+   */
   static get styles() {
     return [
       buttonStyles,

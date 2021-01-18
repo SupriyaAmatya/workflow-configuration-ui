@@ -5,14 +5,35 @@ import './ActionItems';
 
 import { workflowItemStyles } from '../../constants/appCssMixins';
 
-export class WorkflowItem extends LitElement {
-
+/**
+ * `<workflow-item>` Custom component to view workflow item row.
+ *
+ * <body>
+ *  <workflow-item
+ *  .data=data for the item.
+ * >
+ * </workflow-item>
+ *
+ * @LitElement
+ * @Polymer
+ * @customElement
+ */
+class WorkflowItem extends LitElement {
+ 
+   /**
+   * Define the styles of the item row.
+   */
   static get styles(){
     return [workflowItemStyles]
   }
 
   static get properties() {
     return {
+      /**
+       * The data of the item in a list.
+       * 
+       * @type {{data: Object}}
+       */
       data: { type: Object }
     }
   }
@@ -24,7 +45,6 @@ export class WorkflowItem extends LitElement {
   }
 
   render() {
-    console.log('row =>', this.data);
     return html`
       <div class="list-item">
         <div class="col col1">${this.data.workflow}</div>

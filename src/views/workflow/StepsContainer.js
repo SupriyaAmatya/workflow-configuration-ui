@@ -2,8 +2,24 @@ import { LitElement, html, css } from 'lit-element';
 
 import '../../components/workflowCard/workflowCard';
 
-export class StepsContainer extends LitElement {
+/**
+ * `<steps-container>` Custom component to view the list of steps.
+ *
+ * <body>
+ *  <steps-container
+ *  .steps=array of steps in a workflow.
+ * >
+ * </steps-container>
+ *
+ * @LitElement
+ * @Polymer
+ * @customElement
+ */
+class StepsContainer extends LitElement {
 
+   /**
+   * Define styles of the step card container.
+   */
   static get styles(){
     return css`
       :host{

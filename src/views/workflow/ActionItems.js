@@ -3,8 +3,22 @@ import { LitElement, html, css } from 'lit-element';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
 
-export class ActionItems extends LitElement {
+/**
+ * `<action-items>` Custom component for action items.
+ *
+ * <body>
+ *  <action-items>
+ * </action-items>
+ *
+ * @LitElement
+ * @Polymer
+ * @customElement
+ */
+class ActionItems extends LitElement {
 
+  /**
+   * Define styles for action items icon.
+   */
   static styles = css`
     :host {
       display: block;

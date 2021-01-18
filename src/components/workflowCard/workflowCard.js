@@ -7,7 +7,7 @@ import '@polymer/iron-icons/iron-icons.js';
 import { cardStyles } from './workflowCard-styles';
 
 /**
- * `<workflow-card>` Custom component to view the table(grid) of landing page.
+ * `<workflow-card>` Custom component for steps card.
  *
  * <body>
  *  <workflow-card
@@ -22,7 +22,7 @@ import { cardStyles } from './workflowCard-styles';
  * @Polymer
  * @customElement
  */
-export class WorkflowCard extends LitElement {
+class WorkflowCard extends LitElement {
 
   /**
    * Define the styles of the card.
