@@ -1,13 +1,32 @@
+import { LitElement, html } from 'lit-element';
+import { styleMap } from 'lit-html/directives/style-map.js';
+
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/iron-icons/iron-icons.js';
-import { LitElement, html } from 'lit-element';
-import {classMap} from 'lit-html/directives/class-map.js';
 
-import { statusColors } from '../../constants/appConstans';
 import { cardStyles } from './workflowCard-styles';
 
+/**
+ * `<workflow-card>` Custom component to view the table(grid) of landing page.
+ *
+ * <body>
+ *  <workflow-card
+ *  .name=name of the card
+ *  .value=value of the card
+ *  .color=border color of the card
+ *  .bgColor=background color of the card
+ * >
+ * </workflow-card>
+ *
+ * @LitElement
+ * @Polymer
+ * @customElement
+ */
 export class WorkflowCard extends LitElement {
 
+  /**
+   * Define the styles of the card.
+   */
   static get styles() {
     return [cardStyles];
   }
@@ -16,18 +35,31 @@ export class WorkflowCard extends LitElement {
     return {
       /**
        * The name of the card.
+       * 
+       * @type {{name: String}}
        */
       name: { type: String },
 
       /**
        * The value of the card.
+       * 
+       * @type {{value: String}}
        */
       value: { type: String },
 
       /**
-       * The status of the card.
+       * The color of the card.
+       * 
+       * @type {{color: String}}
        */
-      status: { type: String },
+      color: { type: String },
+
+      /**
+       * The background color of the card.
+       * 
+       * @type {{bgColor: String}}
+       */
+      bgColor: { type: String },
     };
   }
 
@@ -36,23 +68,24 @@ export class WorkflowCard extends LitElement {
 
     this.name = 'Step 1';
     this.value = '52';
-    this.status = 'not started'
+    this.color = '#e9e9e9';
+    this.bgColor = '#ffffff';
 
   }
 
   render() {
-    const mainClassName = 'workflow-card';
-    const statusClassName = statusColors[this.status];
-    const cardClass = {
-      [mainClassName]: true,
-      [statusClassName]: true,
+    const styles = {
+      backgroundColor: this.bgColor,
+      borderColor: this.color
     }
     return html`
-      <div class=${classMap(cardClass)}>
-        <iron-icon icon="more-vert" class="card-icon"></iron-icon>
-        <span class="workflow-card__name">
-          ${this.name}
-        </span>
+      <div class='workflow-card' style=${styleMap(styles)}>
+        <div class="workflow-card__top">
+          <span class="workflow-card__name">
+            ${this.name}
+          </span>
+          <iron-icon icon="more-vert" class="card-icon"></iron-icon>
+        </div>
         <span class="workflow-card__value">
           ${this.value}
         </span>

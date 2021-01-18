@@ -27,6 +27,8 @@ export class StepsContainer extends LitElement {
     return{
       /**
        * An array of chemistry steps.
+       * 
+       * @type {{steps: Array}}
        */
       steps: {type: Array}
     }
@@ -41,10 +43,13 @@ export class StepsContainer extends LitElement {
   render() {
     return html`
     ${this.steps.length ? this.steps.map(card => {
+      const bgColor = card.color && card.color + '05';
+
       return html `
-        <workflow-card name="${card.name}" value="${card.value}" status="${card.status}"></workflow-card>
+        <workflow-card name="${card.name}" value="${card.value}" bgColor="${bgColor}" color="${card.color}"></workflow-card>
       `
-    }) : html`<div class="empty-text">No Chemistry steps added yet. </div>`}
+    }) 
+    : html`<div class="empty-text">No Chemistry steps added yet. </div>`}
     `;
   }
 }

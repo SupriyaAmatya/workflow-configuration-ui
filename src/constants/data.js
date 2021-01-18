@@ -6,6 +6,7 @@ export const data = [
         name: 'Step 1',
         value: 'value 1',
         status: 'done',
+        color: '#41cc41',
       },
       {
         name: 'Step 2',
@@ -21,11 +22,13 @@ export const data = [
         name: 'Step 4',
         value: 'value 4',
         status: 'failed',
+        color: '#e45858',
       },
       {
         name: 'Step 5',
         value: 'value 5',
         status: 'in progress',
+        color: '#e4c331',
       },
     ],
   },
@@ -49,7 +52,7 @@ export const data = [
     workflow: 'Cycle 2 - C',
     steps: [
       {
-        name: 'Test',
+        name: 'Long hour working test',
         value: '',
         status: 'not started',
       },

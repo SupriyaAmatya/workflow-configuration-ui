@@ -7,7 +7,6 @@ export const cardStyles = css`
     flex-direction: column;
     justify-content: space-between;
     min-width: 80px;
-    max-width: 80px;
     height: 45px;
     background-color: #ffffff;
     padding: 8px;
@@ -25,15 +24,14 @@ export const cardStyles = css`
   }
 
   .card-icon{
-    position: absolute;
-    top: 8px;
-    right: 0;
+    float: right;
+    margin-left: 4px;
     width: 18px;
     height: 18px;
   }
 
   .workflow-card__name{
-    margin-right: 6px;
+    margin-right: 4px;
   }
 
   .workflow-card__value{
@@ -48,11 +46,13 @@ export const cardStyles = css`
 
   .workflow-card.green{
     border-color: #41cc41;
-    background-color: #f4fff4;
+    /* background-color: #f4fff4; */
+    background-color:#41cc4106
   }
   .workflow-card.orange{
     border-color: #e4c331;
-    background-color: #fffff4;
+    /* background-color: #fffff4; */
+    background-color: #e4c3310e;
   }
   .workflow-card.red{
     border-color: #e45858;
