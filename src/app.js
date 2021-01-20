@@ -1,8 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 
-import './components/workflowCard/workflowCard';
-import './views/workflow/WorkflowList';
 import './views/header/Header';
+import './views/workflow/WorkflowList';
+import './views/plate/WellPlate';
+import './components/workflowCard/workflowCard';
+
 
 export class AppElement extends LitElement {
   static get styles() {
@@ -24,6 +26,7 @@ export class AppElement extends LitElement {
         <div class="container">
           <workflow-header></workflow-header>
           <workflow-list></workflow-list>
+          <well-plate></well-plate>
         </div>
       </div>
     `;

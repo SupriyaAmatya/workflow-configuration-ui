@@ -106,3 +106,66 @@ export const workflowItemStyles = css`
     }
   }
 `;
+
+export const wellPlateStyles = css`
+  :host {
+    display: block;
+    padding: 24px;
+  }
+  .plate-container{
+    width: 50%;
+    min-height: 430px;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+  }
+  .title{
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 20px;
+  }
+  .well-wrapper{
+    padding: 20px;    
+    overflow-x: auto;
+    position: relative;
+  }
+  .well-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 2px;
+  }
+  .cell{
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    font-weight: 600;
+  }
+  .col-header{
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .col-header .cell{
+    margin:0 3px;
+    text-align: center
+  }
+  .row-header{
+    display: flex;
+    flex-direction: column;
+  }
+  .row-header .cell{
+    align-items: center;
+    margin-bottom:8px;
+  }
+  .flex{
+    display: flex;
+  }
+  app-well{
+    margin: 0 2px;
+  }
+  
+  @media screen and (max-width: 768px){
+    .plate-container{
+      width:100%
+    }
+  }
+`;
