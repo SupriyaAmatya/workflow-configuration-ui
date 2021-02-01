@@ -9,6 +9,8 @@ import '@polymer/paper-listbox/paper-listbox';
 import '@polymer/paper-checkbox/paper-checkbox';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu';
 
+import '../workflow/AddWorkflow';
+
 import { buttonStyles, selectStyles, workflowHeaderStyles } from '../../constants/appCssMixins';
 
 /**
@@ -40,7 +42,33 @@ class Header extends LitElement {
     `]
   }
 
+  static get properties(){
+    return{
+      selectedItem: { type: String}
+    }
+  }
+
+  constructor(){
+    super();
+
+    this.selectedItem = ''
+  }
+
+  _toggleDialog = () => {
+    const addWorkflow = this.shadowRoot.querySelector('add-workflow-modal');
+    const modal = addWorkflow.shadowRoot.querySelector('#modal')
+    modal.open();
+  }
+
+  _itemSelected (e) {
+    var selectedItem = e.target.selectedItem;
+    if (selectedItem) {
+      this.selectedItem = selectedItem.innerText;
+    }
+  }
+
   render() {
+
     return html`
     <div class="header-title">
       <iron-icon icon="arrow-back"></iron-icon>
@@ -51,7 +79,7 @@ class Header extends LitElement {
         <img src="../../../src/assets/images/logo.png" alt="logo" />
       </span>
       <div class="header-filter__left">
-        <paper-dropdown-menu label="Select Workflow">
+        <paper-dropdown-menu label="Select Workflow" @selected-item-changed=${this._itemSelected}>
           <paper-listbox slot="dropdown-content" class="dropdown-content" selected="0">
             <paper-item>Standard Workflow</paper-item>
             <paper-item>Basic Workflow</paper-item>
@@ -62,9 +90,14 @@ class Header extends LitElement {
         <paper-button class="btn--edit"><iron-icon icon="create" class="filter-icon"></iron-icon>Edit</paper-button>
       </div>
       <div class="header-filter__right">
-        <paper-button class="btn btn-with-icon"><iron-icon icon="add-circle"></iron-icon>ADD WORKFLOW</paper-button>
+        <paper-button class="btn btn-with-icon" @click=${this._toggleDialog}><iron-icon icon="add-circle"></iron-icon>ADD WORKFLOW</paper-button>
       </div>
     </div>
+    
+    ${
+        this.selectedItem ? html`<p>The selected item is: <strong>${this.selectedItem}</strong></p>` : ''
+      }
+    <add-workflow-modal ></add-workflow-modal>
     `;
   }
 }
